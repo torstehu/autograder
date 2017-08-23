@@ -19,7 +19,7 @@ var loadLabResult = function(user, lab){
     var buildtime = moment(data.Timestamp).format(timeformat);
     $("p#timedate").text("Build date: ").append(buildtime);
     var pushtime = moment(data.PushTime).format(timeformat);
-    $("#pushtime").text("Code delievered: ").append(pushtime);
+    $("#pushtime").text("Code delivered: ").append(pushtime);
     var buildduration = moment(data.BuildTime/(1000*1000), "x").format("mm [min] ss.SS [sec]");
     $("#buildtime").text("Execution time: ").append(buildduration);
 
@@ -63,7 +63,7 @@ var clearLabResults = function() {
   $("p#timedate").text("Build date: -");
   $("#buildtime").text("Execution time: -");
   $("#buildid").text("Build ID: -");
-  $("#pushtime").text("Code delievered: -");
+  $("#pushtime").text("Code delivered: -");
   $("div.progress > div.progress-bar").removeClass("progress-bar-success progress-bar-warning progress-bar-danger progress-bar-striped").attr("aria-valuenow", 6).css("width", "6%").text("0%");
   $("code#logs").text("# There is no build for this lab yet.");
   $("table#testresultlist > tfoot > tr > .totalscore").text("0%");
