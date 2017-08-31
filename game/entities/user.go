@@ -293,7 +293,7 @@ func (u *User) loadDataFromGithub() (user *github.User, err error) {
 		return
 	}
 
-	user, _, err = u.githubclient.Users.Get("")
+	user, _, err = u.githubclient.Users.Get(context.Context.TODO(), "")
 	return
 }
 

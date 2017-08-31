@@ -155,7 +155,7 @@ func (o *Organization) connectAdminToGithub() error {
 	}
 
 	if o.AdminToken == "" {
-		return errors.New("Missing AccessToken to the memeber. Can't contact github.")
+		return errors.New("Missing AccessToken to the member. Can't contact github.")
 	}
 
 	ts := oauth2.StaticTokenSource(

@@ -2,6 +2,7 @@ package git
 
 import (
 	"bytes"
+	"context"
 	"encoding/gob"
 	"errors"
 	"fmt"
@@ -174,7 +175,7 @@ func (m *Member) loadDataFromGithub() (err error) {
 		return
 	}
 
-	user, _, err := m.githubclient.Users.Get("")
+	user, _, err := m.githubclient.Users.Get(context.Context.TODO(), "")
 	if err != nil {
 		return
 	}
@@ -288,7 +289,7 @@ func (m *Member) connectToGithub() error {
 	}
 
 	if !m.accessToken.HasToken() {
-		return errors.New("Missing AccessToken to the memeber. Can't contact github.")
+		return errors.New("Missing AccessToken to the member. Can't contact github.")
 	}
 
 	ts := oauth2.StaticTokenSource(
@@ -406,7 +407,7 @@ func (m *Member) ListOrgs() (ls []string, err error) {
 		return
 	}
 
-	orgs, _, err := m.githubclient.Organizations.List("", nil)
+	orgs, _, err := m.githubclient.Organizations.List(context.Context.TODO(), "", nil)
 
 	ls = make([]string, len(orgs))
 
